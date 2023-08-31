@@ -2,15 +2,19 @@ package com.zzf.controller;
 
 
 import com.google.code.kaptcha.Producer;
+import com.zzf.enums.BizCodeEnum;
+import com.zzf.enums.SendCodeEnum;
+import com.zzf.service.NotifyService;
 import com.zzf.util.CommonUtil;
+import com.zzf.util.JsonData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
@@ -35,15 +39,18 @@ public class NotificationController {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    @Autowired
+    private NotifyService notifyService;
+
     @GetMapping("captcha")
     @ApiOperation("get image verification code")
-    public void getCaptcha(HttpServletRequest request, HttpServletResponse response){
+    public void getCaptcha(HttpServletRequest request, HttpServletResponse response) {
 
         String cacheKey = getCaptchaKey(request);
 
         String capText = captchaProducer.createText();
 
-        redisTemplate.opsForValue().set(cacheKey,capText,CAPTCHA_CODE_EXPIRED, TimeUnit.MILLISECONDS);
+        redisTemplate.opsForValue().set(cacheKey, capText, CAPTCHA_CODE_EXPIRED, TimeUnit.MILLISECONDS);
 
         BufferedImage bi = captchaProducer.createImage(capText);
         ServletOutputStream out = null;
@@ -58,16 +65,33 @@ public class NotificationController {
             out.close();
 
         } catch (IOException e) {
-            log.error("获取验证码失败:{}",e);
+            log.error("获取验证码失败:{}", e);
         }
     }
 
-    private String getCaptchaKey(HttpServletRequest request){
+    @ApiOperation("send email verification code")
+    @GetMapping("send_code")
+    public JsonData sendRegisterCode(@RequestParam(value = "to") String to, @RequestParam(value = "captcha") String captcha,
+            HttpServletRequest request) {
+        String key = getCaptchaKey(request);
+        String cacheCaptcha = redisTemplate.opsForValue().get(key);
+        if(captcha != null && captcha.equalsIgnoreCase(cacheCaptcha)){
+            redisTemplate.delete(key);
+            JsonData jsonData = notifyService.sendCode(SendCodeEnum.USER_REGISTER, to);
+            return jsonData;
+        }else {
+            return JsonData.buildResult(BizCodeEnum.CODE_CAPTCHA_ERROR);
+        }
+    }
+
+    ;
+
+    private String getCaptchaKey(HttpServletRequest request) {
         String ip = CommonUtil.getIpAddr(request);
         String userAgent = request.getHeader("User-Agent");
-        log.info("ip:{}",ip);
-        log.info("userAgent:{}",userAgent);
+        log.info("ip:{}", ip);
+        log.info("userAgent:{}", userAgent);
 
-        return "user-service:captcha:" + CommonUtil.MD5(ip+userAgent);
+        return "user-service:captcha:" + CommonUtil.MD5(ip + userAgent);
     }
 }

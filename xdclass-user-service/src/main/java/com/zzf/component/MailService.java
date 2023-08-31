@@ -1,4 +1,4 @@
-package com.zzf.service;
+package com.zzf.component;
 
 public interface MailService {
     void sendMail(String to, String subject, String content);

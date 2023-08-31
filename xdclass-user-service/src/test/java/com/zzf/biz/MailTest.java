@@ -2,7 +2,7 @@ package com.zzf.biz;
 
 
 import com.zzf.UserApplication;
-import com.zzf.service.MailService;
+import com.zzf.component.MailService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
