@@ -23,7 +23,7 @@ public class UserRegisterRequest {
     @ApiModelProperty(value = "slogan",example = "yes yes yes")
     private String slogan;
 
-    @ApiModelProperty(value = "gender",example = "female ")
+    @ApiModelProperty(value = "gender",example = "female")
     private String gender;
 
     @ApiModelProperty(value = "points",example = "10 ")
