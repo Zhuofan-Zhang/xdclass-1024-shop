@@ -118,7 +118,7 @@ public class CommonUtil {
             response.flushBuffer();
 
         } catch (IOException e) {
-            log.warn("响应json数据给前端异常:{}",e);
+            log.warn("Return json data to front end error:{}",e);
         }
 
 
