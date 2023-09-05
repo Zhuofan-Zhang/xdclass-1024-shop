@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class LoginInterceptor implements HandlerInterceptor {
+
+    public static ThreadLocal<LoginUser> threadLocal = new ThreadLocal<>();
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -34,7 +37,12 @@ public class LoginInterceptor implements HandlerInterceptor {
             String email = (String) claims.get("email");
 
             LoginUser loginUser = LoginUser.builder().avatar(avatar).name(name).email(email).build();
-            //通过threadLocal传递用户登录信息 TODO
+
+            //通过attribute传递用户信息
+            //request.setAttribute("loginUser",loginUser);
+
+            //通过threadLocal传递用户登录信息
+            threadLocal.set(loginUser);
             return true;
         }
         CommonUtil.sendJsonMessage(response, JsonData.buildResult(BizCodeEnum.ACCOUNT_UNLOGIN));
