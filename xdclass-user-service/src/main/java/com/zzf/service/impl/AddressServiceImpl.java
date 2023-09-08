@@ -27,8 +27,18 @@ public class AddressServiceImpl implements AddressService {
     private AddressMapper addressMapper;
 
     @Override
-    public AddressDO detail(long id) {
-        return addressMapper.selectOne(new QueryWrapper<AddressDO>().eq("id", id));
+    public AddressDTO detail(long id) {
+        LoginUser loginUser = LoginInterceptor.threadLocal.get();
+
+        AddressDO addressDO = addressMapper.selectOne(new QueryWrapper<AddressDO>().eq("id", id).eq("user_id", loginUser.getId()));
+
+        if (addressDO == null) {
+            return null;
+        }
+        AddressDTO addressDTO = new AddressDTO();
+        BeanUtils.copyProperties(addressDO, addressDTO);
+
+        return addressDTO;
     }
 
     @Override

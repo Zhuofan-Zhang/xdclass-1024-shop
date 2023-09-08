@@ -8,7 +8,7 @@ import com.zzf.util.JsonData;
 import java.util.List;
 
 public interface AddressService {
-    AddressDO detail(long id);
+    AddressDTO detail(long id);
 
     void add(AddressRequest addressRequest);
 

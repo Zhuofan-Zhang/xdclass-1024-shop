@@ -41,8 +41,9 @@ public class AddressController {
     public Object detail(
             @ApiParam(value = "address_id", required = true)
             @PathVariable("address_id") long addressId) {
-        System.out.println("in");
-        return addressService.detail(addressId);
+        AddressDTO addressDTO = addressService.detail(addressId);
+
+        return addressDTO == null ? JsonData.buildResult(BizCodeEnum.ADDRESS_NO_EXITS):JsonData.buildSuccess(addressDTO);
     }
 
     @ApiOperation("delete address by id")
