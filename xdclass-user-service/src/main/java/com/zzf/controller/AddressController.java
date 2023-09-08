@@ -1,16 +1,14 @@
 package com.zzf.controller;
 
 
+import com.zzf.request.AddressRequest;
 import com.zzf.service.AddressService;
+import com.zzf.util.JsonData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zzf
@@ -23,6 +21,16 @@ public class AddressController {
 
     @Autowired
     private AddressService addressService;
+
+
+    @ApiOperation("add delivery address")
+    @PostMapping("add")
+    public JsonData createAddress(@ApiParam("AddressRequest") @RequestBody AddressRequest addressRequest){
+
+        addressService.add(addressRequest);
+
+        return JsonData.buildSuccess();
+    }
 
     @ApiOperation("find address detail by id")
     @GetMapping("find/{address_id}")

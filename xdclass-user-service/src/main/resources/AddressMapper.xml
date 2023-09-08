@@ -7,18 +7,18 @@
         <id column="id" property="id" />
         <result column="user_id" property="userId" />
         <result column="default_status" property="defaultStatus" />
-        <result column="receive_name" property="receiveName" />
+        <result column="receiver_name" property="receiverName" />
         <result column="phone" property="phone" />
-        <result column="province" property="province" />
+        <result column="state" property="state" />
         <result column="city" property="city" />
         <result column="region" property="region" />
-        <result column="detail_address" property="detailAddress" />
+        <result column="detailed_address" property="detailedAddress" />
         <result column="created_at" property="createdAt" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, user_id, default_status, receive_name, phone, province, city, region, detail_address, created_at
+        id, user_id, default_status, receiver_name, phone, state, city, region, detailed_address, created_at
     </sql>
 
 </mapper>
