@@ -1,7 +1,7 @@
 package com.zzf.biz;
 
 import com.zzf.UserApplication;
-import com.zzf.model.AddressDO;
+import com.zzf.dto.AddressDTO;
 import com.zzf.service.AddressService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -21,8 +21,8 @@ public class AddressTest {
 
     @Test
     public void testAddressDetail(){
-        AddressDO addressDO = addressService.detail(1);
-        log.info(addressDO.getDetailedAddress());
-        Assert.assertNotNull(addressDO);
+        AddressDTO addressDTO = addressService.detail(40);
+        log.info(addressDTO.getDetailedAddress());
+        Assert.assertNotNull(addressDTO);
     }
 }

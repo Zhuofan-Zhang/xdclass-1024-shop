@@ -24,7 +24,7 @@ public class AddressDTO {
 
     private String district;
 
-    @JsonProperty("detail_address")
-    private String detailAddress;
+    @JsonProperty("detailed_address")
+    private String detailedAddress;
 
 }
