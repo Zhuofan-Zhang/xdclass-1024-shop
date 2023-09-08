@@ -22,7 +22,7 @@ public class AddressTest {
     @Test
     public void testAddressDetail(){
         AddressDO addressDO = addressService.detail(1);
-        log.info(addressDO.getDetailAddress());
+        log.info(addressDO.getDetailedAddress());
         Assert.assertNotNull(addressDO);
     }
 }
