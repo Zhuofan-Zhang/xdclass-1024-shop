@@ -1,8 +1,10 @@
 package com.zzf.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zzf.dto.UserDTO;
 import com.zzf.enums.BizCodeEnum;
 import com.zzf.enums.SendCodeEnum;
+import com.zzf.interceptor.LoginInterceptor;
 import com.zzf.mapper.UserMapper;
 import com.zzf.model.LoginUser;
 import com.zzf.model.UserDO;
@@ -99,6 +101,15 @@ public class UserServiceImpl implements UserService {
             //未注册
             return JsonData.buildResult(BizCodeEnum.ACCOUNT_UNREGISTER);
         }
+    }
+
+    @Override
+    public UserDTO getUserDetail() {
+        LoginUser loginUser = LoginInterceptor.threadLocal.get();
+        UserDO userDO = userMapper.selectOne(new QueryWrapper<UserDO>().eq("id", loginUser.getId()));
+        UserDTO userDTO = new UserDTO();
+        BeanUtils.copyProperties(userDO,userDTO);
+         return userDTO;
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.zzf.controller;
 
 
+import com.zzf.dto.UserDTO;
 import com.zzf.request.UserLoginRequest;
 import com.zzf.request.UserRegisterRequest;
 import com.zzf.service.FileService;
@@ -52,6 +53,15 @@ public class UserController {
 
 
         return userService.login(userLoginRequest);
+    }
+
+    @ApiOperation("get customer information")
+    @GetMapping("detail")
+    public JsonData detail(){
+
+        UserDTO userDTO = userService.getUserDetail();
+
+        return JsonData.buildSuccess(userDTO);
     }
 
     //    刷新token的方案 TODO
