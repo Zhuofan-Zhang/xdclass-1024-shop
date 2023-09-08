@@ -1,6 +1,7 @@
 package com.zzf.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zzf.dto.AddressDTO;
 import com.zzf.enums.AddressStatusEnum;
 import com.zzf.interceptor.LoginInterceptor;
 import com.zzf.mapper.AddressMapper;
@@ -14,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -35,25 +38,44 @@ public class AddressServiceImpl implements AddressService {
         addressDO.setCreatedAt(new Date());
         addressDO.setUserId(loginUser.getId());
 
-        BeanUtils.copyProperties(addressRequest,addressDO);
+        BeanUtils.copyProperties(addressRequest, addressDO);
 
 
         //是否有默认收货地址
-        if(addressDO.getDefaultStatus() == AddressStatusEnum.DEFAULT_STATUS.getStatus()){
+        if (addressDO.getDefaultStatus() == AddressStatusEnum.DEFAULT_STATUS.getStatus()) {
             //查找数据库是否有默认地址
             AddressDO defaultAddressDO = addressMapper.selectOne(new QueryWrapper<AddressDO>()
-                    .eq("user_id",loginUser.getId())
+                    .eq("user_id", loginUser.getId())
                     .eq("default_status", AddressStatusEnum.DEFAULT_STATUS.getStatus()));
 
-            if(defaultAddressDO != null){
+            if (defaultAddressDO != null) {
                 //修改为非默认收货地址
                 defaultAddressDO.setDefaultStatus(AddressStatusEnum.COMMON_STATUS.getStatus());
-                addressMapper.update(defaultAddressDO,new QueryWrapper<AddressDO>().eq("id",defaultAddressDO.getId()));
+                addressMapper.update(defaultAddressDO, new QueryWrapper<AddressDO>().eq("id", defaultAddressDO.getId()));
             }
         }
 
         int rows = addressMapper.insert(addressDO);
 
-        log.info("created new address:rows={},data={}",rows,addressDO);
+        log.info("created new address:rows={},data={}", rows, addressDO);
+    }
+
+    @Override
+    public int del(int addressId) {
+        LoginUser loginUser = LoginInterceptor.threadLocal.get();
+
+        return addressMapper.delete(new QueryWrapper<AddressDO>().eq("id", addressId).eq("user_id", loginUser.getId()));
+    }
+
+    @Override
+    public List<AddressDTO> listUserAllAddress() {
+        LoginUser loginUser = LoginInterceptor.threadLocal.get();
+        List<AddressDO> list = addressMapper.selectList(new QueryWrapper<AddressDO>().eq("user_id", loginUser.getId()));
+
+        return list.stream().map(obj -> {
+            AddressDTO addressVO = new AddressDTO();
+            BeanUtils.copyProperties(obj, addressVO);
+            return addressVO;
+        }).collect(Collectors.toList());
     }
 }
