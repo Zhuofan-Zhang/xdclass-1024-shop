@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2023-09-09
  */
 @RestController
-@RequestMapping("/couponRecordDO")
+@RequestMapping("/api/coupon_record")
 public class CouponRecordController {
 
 }

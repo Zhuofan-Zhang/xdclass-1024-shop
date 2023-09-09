@@ -1,7 +1,9 @@
 package com.zzf.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zzf.enums.CouponCategoryEnum;
 import com.zzf.model.CouponDO;
+import com.zzf.util.JsonData;
 
 import java.util.Map;
 
@@ -16,4 +18,5 @@ import java.util.Map;
 public interface CouponService {
     Map<String, Object> getCouponListWithPagination(int page, int size);
 
+    JsonData addCoupon(long couponId, CouponCategoryEnum category);
 }

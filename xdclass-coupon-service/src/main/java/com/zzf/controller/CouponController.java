@@ -1,15 +1,13 @@
 package com.zzf.controller;
 
 
+import com.zzf.enums.CouponCategoryEnum;
 import com.zzf.service.CouponService;
 import com.zzf.util.JsonData;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -38,5 +36,14 @@ public class CouponController {
         Map<String, Object> pageMap = couponService.getCouponListWithPagination(page, size);
         return JsonData.buildSuccess(pageMap);
     }
+
+    @ApiOperation("get coupon")
+    @GetMapping("/add/promotion/{coupon_id}")
+    public JsonData addPromotionCoupon(@ApiParam(value = "coupon id",required = true) @PathVariable("coupon_id")long couponId){
+
+
+        return couponService.addCoupon(couponId, CouponCategoryEnum.PROMOTION);
+    }
+
 }
 

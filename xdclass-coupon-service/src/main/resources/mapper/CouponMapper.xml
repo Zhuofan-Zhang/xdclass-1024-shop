@@ -24,4 +24,8 @@
         id, category, publish, coupon_img, coupon_title, price_deducted, user_limit, valid_from, valid_until, inventory, remaining, created_at, condition_price
     </sql>
 
+    <update id="reduceStock">
+        update coupon set remaining=remaining-1 where id = #{couponId} and remaining > 0
+    </update>
+
 </mapper>

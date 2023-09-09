@@ -2,6 +2,7 @@ package com.zzf.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zzf.model.CouponDO;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.zzf.model.CouponDO;
  */
 public interface CouponMapper extends BaseMapper<CouponDO> {
 
+    int reduceStock(@Param("couponId") long couponId);
 }
