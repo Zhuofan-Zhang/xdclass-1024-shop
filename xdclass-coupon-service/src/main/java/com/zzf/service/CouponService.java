@@ -3,6 +3,8 @@ package com.zzf.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzf.model.CouponDO;
 
+import java.util.Map;
+
 /**
  * <p>
  *  服务类
@@ -11,6 +13,7 @@ import com.zzf.model.CouponDO;
  * @author zzf
  * @since 2023-09-09
  */
-public interface CouponService extends IService<CouponDO> {
+public interface CouponService {
+    Map<String, Object> getCouponListWithPagination(int page, int size);
 
 }
