@@ -3,7 +3,6 @@ package com.zzf.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zzf.dto.CouponDTO;
 import com.zzf.enums.BizCodeEnum;
 import com.zzf.enums.CouponCategoryEnum;
@@ -75,7 +74,7 @@ public class CouponServiceImpl implements CouponService {
                 .eq("category", category.name()));
 
         //优惠券是否可以领取
-        this.checkCoupon(couponDO, loginUser.getId());
+        this.validateCoupon(couponDO, loginUser.getId());
 
         //构建领劵记录
         CouponRecordDO couponRecordDO = new CouponRecordDO();
@@ -107,7 +106,7 @@ public class CouponServiceImpl implements CouponService {
 
     }
 
-    private void checkCoupon(CouponDO couponDO, Long userId) {
+    private void validateCoupon(CouponDO couponDO, Long userId) {
 
         if (couponDO == null) {
             throw new BizException(BizCodeEnum.COUPON_NO_EXITS);
