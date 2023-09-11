@@ -21,11 +21,16 @@ import com.zzf.util.JsonData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -45,6 +50,9 @@ public class CouponServiceImpl implements CouponService {
 
     @Autowired
     private CouponRecordMapper couponRecordMapper;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     @Override
     public Map<String, Object> getCouponListWithPagination(int page, int size) {
@@ -66,6 +74,39 @@ public class CouponServiceImpl implements CouponService {
 
     public JsonData addCoupon(long couponId, CouponCategoryEnum category) {
 
+        String uuid = CommonUtil.generateUUID();
+        String lockKey = "lock:coupon:" + couponId;
+
+        Boolean lockFlag = redisTemplate.opsForValue().setIfAbsent(lockKey, uuid, Duration.ofMinutes(10));
+        if (lockFlag) {
+            //加锁成功
+            log.info("add lock successfully:{}", couponId);
+            try {
+                validateAndUpdateCouponRecord(couponId, category);
+            } finally {
+                String script = "if redis.call('get',KEYS[1]) == ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end";
+
+                Integer result = redisTemplate.execute(new DefaultRedisScript<>(script, Integer.class), Arrays.asList(lockKey), uuid);
+                log.info("release lock：{}", result);
+            }
+        } else {
+            //加锁失败
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                log.error("recursion error");
+            }
+            addCoupon(couponId, category);
+        }
+
+        validateAndUpdateCouponRecord(couponId, category);
+
+
+        return JsonData.buildCodeAndMsg(0, "add coupon successfully");
+
+    }
+
+    private void validateAndUpdateCouponRecord(long couponId, CouponCategoryEnum category) {
         LoginUser loginUser = LoginInterceptor.threadLocal.get();
 
 
@@ -100,10 +141,6 @@ public class CouponServiceImpl implements CouponService {
 
             throw new BizException(BizCodeEnum.COUPON_NO_STOCK);
         }
-
-
-        return JsonData.buildCodeAndMsg(0,"add coupon successfully");
-
     }
 
     private void validateCoupon(CouponDO couponDO, Long userId) {
