@@ -19,18 +19,15 @@ import com.zzf.service.CouponService;
 import com.zzf.util.CommonUtil;
 import com.zzf.util.JsonData;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -52,7 +49,7 @@ public class CouponServiceImpl implements CouponService {
     private CouponRecordMapper couponRecordMapper;
 
     @Autowired
-    private StringRedisTemplate redisTemplate;
+    private RedissonClient redissonClient;
 
     @Override
     public Map<String, Object> getCouponListWithPagination(int page, int size) {
@@ -74,29 +71,24 @@ public class CouponServiceImpl implements CouponService {
 
     public JsonData addCoupon(long couponId, CouponCategoryEnum category) {
 
-        String uuid = CommonUtil.generateUUID();
+        LoginUser loginUser = LoginInterceptor.threadLocal.get();
+
         String lockKey = "lock:coupon:" + couponId;
+        RLock rLock = redissonClient.getLock(lockKey);
 
-        Boolean lockFlag = redisTemplate.opsForValue().setIfAbsent(lockKey, uuid, Duration.ofMinutes(10));
-        if (lockFlag) {
-            //加锁成功
-            log.info("add lock successfully:{}", couponId);
-            try {
-                validateAndUpdateCouponRecord(couponId, category);
-            } finally {
-                String script = "if redis.call('get',KEYS[1]) == ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end";
+        //多个线程进入，会阻塞等待释放锁，默认30秒，然后有watch dog自动续期
+        rLock.lock();
 
-                Integer result = redisTemplate.execute(new DefaultRedisScript<>(script, Integer.class), Arrays.asList(lockKey), uuid);
-                log.info("release lock：{}", result);
-            }
-        } else {
-            //加锁失败
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                log.error("recursion error");
-            }
-            addCoupon(couponId, category);
+        //加锁10秒钟过期，没有watch dog功能，无法自动续期
+        //rLock.lock(10,TimeUnit.SECONDS);
+
+
+        log.info("领劵接口加锁成功:{}", Thread.currentThread().getId());
+        try {
+            validateAndUpdateCouponRecord(couponId, category);
+        } finally {
+            rLock.unlock();
+            log.info("lock released");
         }
 
         validateAndUpdateCouponRecord(couponId, category);
