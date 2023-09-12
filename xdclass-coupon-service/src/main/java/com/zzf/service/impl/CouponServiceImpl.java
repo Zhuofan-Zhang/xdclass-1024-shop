@@ -24,6 +24,8 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -69,6 +71,7 @@ public class CouponServiceImpl implements CouponService {
         return pageMap;
     }
 
+    @Transactional(rollbackFor=Exception.class,propagation= Propagation.REQUIRED)
     public JsonData addCoupon(long couponId, CouponCategoryEnum category) {
 
         LoginUser loginUser = LoginInterceptor.threadLocal.get();
@@ -90,9 +93,6 @@ public class CouponServiceImpl implements CouponService {
             rLock.unlock();
             log.info("lock released");
         }
-
-        validateAndUpdateCouponRecord(couponId, category);
-
 
         return JsonData.buildCodeAndMsg(0, "add coupon successfully");
 
