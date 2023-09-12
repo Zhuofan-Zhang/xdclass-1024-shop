@@ -2,6 +2,7 @@ package com.zzf.controller;
 
 
 import com.zzf.enums.CouponCategoryEnum;
+import com.zzf.request.NewUserCouponRequest;
 import com.zzf.service.CouponService;
 import com.zzf.util.JsonData;
 import io.swagger.annotations.ApiOperation;
@@ -37,12 +38,22 @@ public class CouponController {
         return JsonData.buildSuccess(pageMap);
     }
 
-    @ApiOperation("get coupon")
+    @ApiOperation("add promotional coupon for user")
     @GetMapping("/add/promotion/{coupon_id}")
     public JsonData addPromotionCoupon(@ApiParam(value = "coupon id",required = true) @PathVariable("coupon_id")long couponId){
 
 
         return couponService.addCoupon(couponId, CouponCategoryEnum.PROMOTION);
+    }
+
+
+    @ApiOperation("issue new user coupon")
+    @PostMapping("/new_user_coupon")
+    public JsonData addNewUserCoupon(@ApiParam("NewUserCouponRequest") @RequestBody NewUserCouponRequest newUserCouponRequest ){
+
+        JsonData jsonData = couponService.issueNewUserCoupon(newUserCouponRequest);
+
+        return jsonData;
     }
 
 }

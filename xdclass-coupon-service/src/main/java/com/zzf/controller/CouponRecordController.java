@@ -4,6 +4,7 @@ package com.zzf.controller;
 import com.zzf.dto.CouponRecordDTO;
 import com.zzf.enums.BizCodeEnum;
 import com.zzf.model.CouponRecordDO;
+import com.zzf.request.NewUserCouponRequest;
 import com.zzf.service.CouponRecordService;
 import com.zzf.util.JsonData;
 import io.swagger.annotations.ApiOperation;

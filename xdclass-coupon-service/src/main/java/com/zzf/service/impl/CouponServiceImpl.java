@@ -15,6 +15,7 @@ import com.zzf.mapper.CouponRecordMapper;
 import com.zzf.model.CouponDO;
 import com.zzf.model.CouponRecordDO;
 import com.zzf.model.LoginUser;
+import com.zzf.request.NewUserCouponRequest;
 import com.zzf.service.CouponService;
 import com.zzf.util.CommonUtil;
 import com.zzf.util.JsonData;
@@ -29,6 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -74,16 +76,10 @@ public class CouponServiceImpl implements CouponService {
     @Transactional(rollbackFor=Exception.class,propagation= Propagation.REQUIRED)
     public JsonData addCoupon(long couponId, CouponCategoryEnum category) {
 
-        LoginUser loginUser = LoginInterceptor.threadLocal.get();
-
         String lockKey = "lock:coupon:" + couponId;
         RLock rLock = redissonClient.getLock(lockKey);
 
-        //多个线程进入，会阻塞等待释放锁，默认30秒，然后有watch dog自动续期
         rLock.lock();
-
-        //加锁10秒钟过期，没有watch dog功能，无法自动续期
-        //rLock.lock(10,TimeUnit.SECONDS);
 
 
         log.info("领劵接口加锁成功:{}", Thread.currentThread().getId());
@@ -98,6 +94,26 @@ public class CouponServiceImpl implements CouponService {
 
     }
 
+
+    @Transactional(rollbackFor=Exception.class,propagation=Propagation.REQUIRED)
+    @Override
+    public JsonData issueNewUserCoupon(NewUserCouponRequest newUserCouponRequest) {
+        LoginUser loginUser = new LoginUser();
+        loginUser.setId(newUserCouponRequest.getUserId());
+        loginUser.setName(newUserCouponRequest.getName());
+        LoginInterceptor.threadLocal.set(loginUser);
+
+        List<CouponDO> couponDOList = couponMapper.selectList(new QueryWrapper<CouponDO>()
+                .eq("category",CouponCategoryEnum.NEW_USER.name()));
+
+        for(CouponDO couponDO : couponDOList){
+            addCoupon(couponDO.getId(),CouponCategoryEnum.NEW_USER);
+
+        }
+
+        return JsonData.buildSuccess();
+    }
+
     private void validateAndUpdateCouponRecord(long couponId, CouponCategoryEnum category) {
         LoginUser loginUser = LoginInterceptor.threadLocal.get();
 
@@ -106,10 +122,8 @@ public class CouponServiceImpl implements CouponService {
                 .eq("id", couponId)
                 .eq("category", category.name()));
 
-        //优惠券是否可以领取
         this.validateCoupon(couponDO, loginUser.getId());
 
-        //构建领劵记录
         CouponRecordDO couponRecordDO = new CouponRecordDO();
         BeanUtils.copyProperties(couponDO, couponRecordDO);
         couponRecordDO.setCreatedAt(new Date());
@@ -119,13 +133,10 @@ public class CouponServiceImpl implements CouponService {
         couponRecordDO.setCouponId(couponId);
         couponRecordDO.setId(null);
 
-        //扣减库存
         int rows = couponMapper.reduceStock(couponId);
 
-        //int flag = 1/0;
-
         if (rows == 1) {
-            //库存扣减成功才保存记录
+
             couponRecordMapper.insert(couponRecordDO);
 
         } else {
