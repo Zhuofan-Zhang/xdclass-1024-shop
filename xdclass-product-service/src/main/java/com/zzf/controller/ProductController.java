@@ -1,17 +1,14 @@
 package com.zzf.controller;
 
 
+import com.zzf.dto.ProductDTO;
 import com.zzf.service.ProductService;
 import com.zzf.util.JsonData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -42,6 +39,15 @@ public class ProductController {
 
         return JsonData.buildSuccess(pageResult);
     }
+
+    @ApiOperation("product detail")
+    @GetMapping("/detail/{product_id}")
+    public JsonData detail(@ApiParam(value = "product_id",required = true) @PathVariable("product_id") long productId){
+
+        ProductDTO productVO = productService.findDetailById(productId);
+        return JsonData.buildSuccess(productVO);
+    }
+
 
 
 }
