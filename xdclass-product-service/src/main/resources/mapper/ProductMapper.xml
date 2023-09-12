@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzf.mapper.ProductMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zzf.model.ProductDO">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="cover_img" property="coverImg" />
+        <result column="detail" property="detail" />
+        <result column="old_price" property="oldPrice" />
+        <result column="price" property="price" />
+        <result column="inventory" property="inventory" />
+        <result column="created_at" property="createdAt" />
+        <result column="locked_inventory" property="lockedInventory" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, title, cover_img, detail, old_price, price, inventory, created_at, locked_inventory
+    </sql>
+
+</mapper>
