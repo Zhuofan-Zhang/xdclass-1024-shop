@@ -1,6 +1,7 @@
 package com.zzf.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zzf.dto.CouponRecordDTO;
 import com.zzf.model.CouponRecordDO;
 
 import java.util.Map;
@@ -17,4 +18,5 @@ public interface CouponRecordService{
 
     Map<String, Object> page(int page, int size);
 
+    CouponRecordDTO findById(long recordId);
 }

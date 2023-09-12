@@ -53,6 +53,17 @@ public class CouponRecordServiceImpl implements CouponRecordService {
         return pageMap;
     }
 
+    @Override
+    public CouponRecordDTO findById(long recordId) {
+        LoginUser loginUser = LoginInterceptor.threadLocal.get();
+        CouponRecordDO couponRecordDO = couponRecordMapper.selectOne(new QueryWrapper<CouponRecordDO>()
+                .eq("id",recordId).eq("user_id",loginUser.getId()));
+
+        if(couponRecordDO == null ){return null;}
+
+        return mapCouponRecord(couponRecordDO);
+    }
+
     private CouponRecordDTO mapCouponRecord(CouponRecordDO couponRecordDO) {
 
 

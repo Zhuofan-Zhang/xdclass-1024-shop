@@ -1,15 +1,15 @@
 package com.zzf.controller;
 
 
+import com.zzf.dto.CouponRecordDTO;
+import com.zzf.enums.BizCodeEnum;
+import com.zzf.model.CouponRecordDO;
 import com.zzf.service.CouponRecordService;
 import com.zzf.util.JsonData;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -41,6 +41,18 @@ public class CouponRecordController {
         Map<String,Object> pageResult = couponRecordService.page(page,size);
 
         return JsonData.buildSuccess(pageResult);
+    }
+
+    @ApiOperation("get user coupon record detail by record id")
+    @GetMapping("detail/{record_id}")
+    public JsonData getCouponRecordDetailBy(@ApiParam(value = "record_id")  @PathVariable("record_id") long recordId){
+
+
+
+        CouponRecordDTO couponRecordVO = couponRecordService.findById(recordId);
+
+        return couponRecordVO == null ? JsonData.buildResult(BizCodeEnum.COUPON_NO_EXITS):JsonData.buildSuccess(couponRecordVO);
+
     }
 
 }
