@@ -23,7 +23,7 @@ import java.util.List;
 public class BannerServiceImpl implements BannerService {
 
     @Autowired
-    BannerMapper bannerMapper;
+    private BannerMapper bannerMapper;
 
     @Override
     public List<BannerDO> getBannerList() {
