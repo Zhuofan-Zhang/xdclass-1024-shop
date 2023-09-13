@@ -44,8 +44,8 @@ public class ProductController {
     @GetMapping("/detail/{product_id}")
     public JsonData detail(@ApiParam(value = "product_id",required = true) @PathVariable("product_id") long productId){
 
-        ProductDTO productVO = productService.findDetailById(productId);
-        return JsonData.buildSuccess(productVO);
+        ProductDTO productDTO = productService.findDetailById(productId);
+        return JsonData.buildSuccess(productDTO);
     }
 
 

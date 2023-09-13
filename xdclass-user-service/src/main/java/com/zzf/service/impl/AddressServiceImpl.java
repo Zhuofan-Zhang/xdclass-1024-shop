@@ -83,9 +83,9 @@ public class AddressServiceImpl implements AddressService {
         List<AddressDO> list = addressMapper.selectList(new QueryWrapper<AddressDO>().eq("user_id", loginUser.getId()));
 
         return list.stream().map(obj -> {
-            AddressDTO addressVO = new AddressDTO();
-            BeanUtils.copyProperties(obj, addressVO);
-            return addressVO;
+            AddressDTO addressDTO = new AddressDTO();
+            BeanUtils.copyProperties(obj, addressDTO);
+            return addressDTO;
         }).collect(Collectors.toList());
     }
 }

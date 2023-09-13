@@ -22,9 +22,6 @@ public class ProductDTO {
 
     private Long id;
 
-    /**
-     * 标题
-     */
     private String title;
 
     /**

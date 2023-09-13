@@ -50,9 +50,9 @@ public class CouponRecordController {
 
 
 
-        CouponRecordDTO couponRecordVO = couponRecordService.findById(recordId);
+        CouponRecordDTO couponRecordDTO = couponRecordService.findById(recordId);
 
-        return couponRecordVO == null ? JsonData.buildResult(BizCodeEnum.COUPON_NO_EXITS):JsonData.buildSuccess(couponRecordVO);
+        return couponRecordDTO == null ? JsonData.buildResult(BizCodeEnum.COUPON_NO_EXITS):JsonData.buildSuccess(couponRecordDTO);
 
     }
 

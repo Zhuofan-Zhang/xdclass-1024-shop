@@ -33,9 +33,9 @@ public class ProductDO implements Serializable {
 
     private String detail;
 
-    private BigDecimal oldPrice;
+    private BigDecimal oldAmount;
 
-    private BigDecimal price;
+    private BigDecimal amount;
 
     private Integer inventory;
 
