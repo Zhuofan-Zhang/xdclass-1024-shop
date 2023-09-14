@@ -1,10 +1,12 @@
 package com.zzf.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 
 import java.math.BigDecimal;
 
 
+@Builder
 public class CartItemDTO {
 
 

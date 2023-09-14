@@ -1,5 +1,6 @@
 package com.zzf.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zzf.dto.ProductDTO;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -46,6 +48,13 @@ public class ProductServiceImpl implements ProductService {
         ProductDO productDO = productMapper.selectById(id);
 
         return mapProductDTO(productDO);
+    }
+
+    @Override
+    public List<ProductDTO> findProductsByIdBatch(List<Long> productIdList) {
+        List<ProductDO> products = productMapper.selectList(new QueryWrapper<ProductDO>().in("id", productIdList));
+        List<ProductDTO> productDTOS = products.stream().map(this::mapProductDTO).collect(Collectors.toList());
+        return productDTOS;
     }
 
     private ProductDTO mapProductDTO(ProductDO productDO) {
