@@ -28,8 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Set up application.yml
-      run: |
-        echo "port: ${{ secrets.REDIS_HOST }}" >> xdclass-product-service/src/main/resources/application.yml
+      run: xdclass-product-service/env/set_env.sh
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml

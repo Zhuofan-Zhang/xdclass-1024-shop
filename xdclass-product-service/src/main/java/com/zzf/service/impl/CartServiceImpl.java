@@ -54,18 +54,19 @@ public class CartServiceImpl implements CartService {
 
         if(StringUtils.isBlank(result)){
             //不存在则新建一个商品
+            CartItemDTO cartItemDTO = new CartItemDTO();
+
 
             ProductDTO productVO = productService.findDetailById(productId);
             if(productVO == null){throw new BizException(BizCodeEnum.CART_FAIL);}
-            CartItemDTO cartItemVO = CartItemDTO.builder()
-                    .amount(productVO.getAmount())
-                    .purchaseNum(buyNum)
-                    .productId(productId)
-                    .productImg(productVO.getCoverImg())
-                    .productTitle(productVO.getTitle())
-                    .build();
+            cartItemDTO.setAmount(productVO.getAmount());
+            cartItemDTO.setPurchaseNum(buyNum);
+            cartItemDTO.setProductId(productId);
+            cartItemDTO.setProductImg(productVO.getCoverImg());
+            cartItemDTO.setProductTitle(productVO.getTitle());
+            myCart.put(productId,JSON.toJSONString(cartItemDTO));
 
-            myCart.put(productId,JSON.toJSONString(cartItemVO));
+            myCart.put(productId,JSON.toJSONString(cartItemDTO));
 
         }else {
             //存在商品，修改数量

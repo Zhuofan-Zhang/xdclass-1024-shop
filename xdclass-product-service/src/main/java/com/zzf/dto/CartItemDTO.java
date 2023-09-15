@@ -6,7 +6,6 @@ import lombok.Builder;
 import java.math.BigDecimal;
 
 
-@Builder
 public class CartItemDTO {
 
 
