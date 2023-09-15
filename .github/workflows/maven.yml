@@ -27,6 +27,8 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+    - name: Grant Execute Permission
+      run: chmod +x xdclass-product-service/env/set_env.sh
     - name: Set up application.yml
       run: xdclass-product-service/env/set_env.sh
 
