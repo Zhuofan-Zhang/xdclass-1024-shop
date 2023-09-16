@@ -13,7 +13,7 @@ cd ..
 #echo "The value of VARIABLE_NAME is: $my_variable"
 
 
-echo "\nspring.redis.host: $redis_host" >> ./xdclass-product-service/src/main/resources/application.yml
+echo "\nspring.redis.host: $redis_host" >> xdclass-product-service/src/main/resources/application.yml
 #echo "\nspring.redis.port: $redis_port" >> ./src/main/resources/application.yml
 #echo "\nspring.redis.password: $redis_password" >> ./src/main/resources/application.yml
 #echo  "\nspring.datasource.driver-class-name: ${ env.DATABASE_DRIVER }" >> ./src/main/resources/application.yml
