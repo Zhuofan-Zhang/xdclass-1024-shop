@@ -1,0 +1,16 @@
+server.port: 9003
+spring:
+  application:
+    name: xdclass-product-service
+
+#配置plus打印sql日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#设置日志级别,ERROR/WARN/INFO/DEBUG,默认是INFO以上才显示
+logging:
+  level:
+    root: INFO
+
+spring.redis.password: 123456
