@@ -1,9 +1,6 @@
 #!/bin/bash
-cd ..
 
 pwd
-
-#!/bin/bash
 
 # Read the value of an environment variable
 #redis_host=$REDIS_HOST
