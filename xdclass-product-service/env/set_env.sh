@@ -1,6 +1,7 @@
 #!/bin/bash
 cd ..
 
+pwd
 
 #!/bin/bash
 
