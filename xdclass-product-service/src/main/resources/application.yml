@@ -12,5 +12,3 @@ mybatis-plus:
 logging:
   level:
     root: INFO
-
-spring.redis.password: 123456
