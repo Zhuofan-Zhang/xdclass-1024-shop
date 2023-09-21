@@ -95,6 +95,28 @@ public class CartServiceImpl implements CartService {
         return cartVO;
     }
 
+    @Override
+    public void deleteItem(long productId) {
+        BoundHashOperations<String,Object,Object> myCart =  getMyCartOps();
+
+        myCart.delete(productId);
+    }
+
+    @Override
+    public void changeItemNum(CartItemRequest cartItemRequest) {
+        BoundHashOperations<String,Object,Object> mycart =  getMyCartOps();
+
+        Object cacheObj = mycart.get(cartItemRequest.getProductId());
+
+        if(cacheObj==null){throw new BizException(BizCodeEnum.CART_FAIL);}
+
+        String obj = (String)cacheObj;
+
+        CartItemDTO cartItemVO =  JSON.parseObject(obj,CartItemDTO.class);
+        cartItemVO.setPurchaseNum(cartItemRequest.getPurchaseNum());
+        mycart.put(cartItemRequest.getProductId(),JSON.toJSONString(cartItemVO));
+    }
+
     private BoundHashOperations<String,Object,Object> getMyCartOps(){
         String cartKey = getCartKey();
         return redisTemplate.boundHashOps(cartKey);

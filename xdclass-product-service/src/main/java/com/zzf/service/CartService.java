@@ -17,4 +17,8 @@ public interface CartService {
     void clear();
 
     CartDTO getCart();
+
+    void deleteItem(long productId);
+
+    void changeItemNum(CartItemRequest cartItemRequest);
 }

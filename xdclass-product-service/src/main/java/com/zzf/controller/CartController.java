@@ -41,4 +41,22 @@ public class CartController {
         CartDTO cartDTO = cartService.getCart();
         return JsonData.buildSuccess(cartDTO);
     }
+
+    @ApiOperation("delete cart item")
+    @DeleteMapping("/delete/{product_id}")
+    public JsonData deleteItem( @ApiParam(value = "product id",required = true)@PathVariable("product_id")long productId ){
+
+        cartService.deleteItem(productId);
+        return JsonData.buildSuccess();
+    }
+
+    @ApiOperation("change cart item number")
+    @PostMapping("change")
+    public JsonData changeItemNum( @ApiParam("CartItemRequest") @RequestBody  CartItemRequest cartItemRequest){
+
+        cartService.changeItemNum(cartItemRequest);
+
+        return JsonData.buildSuccess();
+    }
+
 }

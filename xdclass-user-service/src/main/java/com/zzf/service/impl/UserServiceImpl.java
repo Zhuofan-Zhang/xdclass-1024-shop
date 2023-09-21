@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zzf.dto.UserDTO;
 import com.zzf.enums.BizCodeEnum;
 import com.zzf.enums.SendCodeEnum;
+import com.zzf.feign.CouponFeignService;
 import com.zzf.interceptor.LoginInterceptor;
 import com.zzf.mapper.UserMapper;
 import com.zzf.model.LoginUser;
@@ -16,6 +17,7 @@ import com.zzf.service.UserService;
 import com.zzf.util.CommonUtil;
 import com.zzf.util.JWTUtil;
 import com.zzf.util.JsonData;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.Md5Crypt;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +34,9 @@ import java.util.List;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private CouponFeignService couponFeignService;
 
     @Autowired
     private NotifyService notifyService;
@@ -111,8 +116,8 @@ public class UserServiceImpl implements UserService {
         LoginUser loginUser = LoginInterceptor.threadLocal.get();
         UserDO userDO = userMapper.selectOne(new QueryWrapper<UserDO>().eq("id", loginUser.getId()));
         UserDTO userDTO = new UserDTO();
-        BeanUtils.copyProperties(userDO,userDTO);
-         return userDTO;
+        BeanUtils.copyProperties(userDO, userDTO);
+        return userDTO;
     }
 
     /**
@@ -133,10 +138,11 @@ public class UserServiceImpl implements UserService {
         NewUserCouponRequest request = new NewUserCouponRequest();
         request.setName(userDO.getName());
         request.setUserId(userDO.getId());
-//        JsonData jsonData = couponFeignService.addNewUserCoupon(request);
-//        if(jsonData.getCode()!=0){
+        JsonData jsonData = couponFeignService.addNewUserCoupon(request);
+//        if (jsonData.getCode() != 0) {
 //            throw new RuntimeException("发放优惠券异常");
 //        }
-//        log.info("发放新用户注册优惠券：{},结果:{}",request.toString(),jsonData.toString());
+        log.info("发放新用户注册优惠券：{},结果:{}", request.toString(), jsonData.toString());
+
     }
 }
