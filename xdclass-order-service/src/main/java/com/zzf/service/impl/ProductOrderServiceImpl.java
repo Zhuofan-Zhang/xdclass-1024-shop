@@ -1,11 +1,9 @@
 package com.zzf.service.impl;
+
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import lombok.extern.slf4j.Slf4j;
 import com.zzf.component.PayFactory;
 import com.zzf.config.RabbitMQConfig;
 import com.zzf.constants.CacheKey;
@@ -27,11 +25,11 @@ import com.zzf.service.ProductOrderService;
 import com.zzf.util.CommonUtil;
 import com.zzf.util.JsonData;
 import com.zzf.vo.*;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
@@ -128,7 +126,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         List<Long> productIdList = orderRequest.getProductIdList();
 
         JsonData cartItemDate = productFeignService.confirmOrderCartItem(productIdList);
-        List<OrderItemVO> orderItemList  = cartItemDate.getData(new TypeReference<>(){});
+        List<OrderItemVO> orderItemList  = (List<OrderItemVO>) cartItemDate.getData();
         log.info("获取的商品:{}",orderItemList);
         if(orderItemList == null){
             //购物车商品不存在
@@ -350,14 +348,14 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
         JsonData couponData = couponFeignSerivce.findUserCouponRecordById(couponRecordId);
 
+
         if(couponData.getCode()!=0){
             throw new BizException(BizCodeEnum.ORDER_CONFIRM_COUPON_FAIL);
         }
 
         if(couponData.getCode()==0){
 
-            TypeReference<CouponRecordVO> typeReference = new TypeReference<CouponRecordVO>() {};
-            CouponRecordVO couponRecordVO = couponData.getData(typeReference);
+            CouponRecordVO couponRecordVO = (CouponRecordVO) couponData.getData();
 
 
             if(!couponAvailable(couponRecordVO)){
@@ -402,9 +400,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             throw new BizException(BizCodeEnum.ADDRESS_NO_EXITS);
         }
 
-        ProductOrderAddressVO addressVO = addressData.getData(new TypeReference<>(){});
-
-        return addressVO;
+        return (ProductOrderAddressVO) addressData.getData();
     }
 
 
@@ -471,7 +467,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
     /***
      * 支付通知结果更新订单状态
-     * @param alipay
+     * @param payType
      * @param paramsMap
      * @return
      */
