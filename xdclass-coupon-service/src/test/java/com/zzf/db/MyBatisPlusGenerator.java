@@ -1,3 +1,5 @@
+package com.zzf.db;
+
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -8,22 +10,32 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
+/**
+ * 小滴课堂,愿景：让技术不再难学
+ *
+ * @Description
+ * @Author 二当家小D
+ * @Remark 有问题直接联系我，源码-笔记-技术交流群
+ * @Version 1.0
+ **/
 public class MyBatisPlusGenerator {
 
     public static void main(String[] args) {
         //1. 全局配置
         GlobalConfig config = new GlobalConfig();
         // 是否支持AR模式
-        config.setActiveRecord(true)
+        config
                 // 作者
-                .setAuthor("zzf")
+                .setAuthor("二当家小D")
                 // 生成路径，最好使用绝对路径，window路径是不一样的
                 //TODO  TODO  TODO  TODO
-                .setOutputDir("xdclass-order-service/src/main/java")
-                // 文件覆盖
-                .setFileOverride(true)
+                .setOutputDir("/Users/xdclass/Desktop/demo/src/main/java")
+
                 // 主键策略
                 .setIdType(IdType.AUTO)
+
+                // 文件覆盖
+                .setFileOverride(true)
 
                 .setDateType(DateType.ONLY_DATE)
                 // 设置生成的service接口的名字的首字母是否为I，默认Service是以I开头的
@@ -47,9 +59,9 @@ public class MyBatisPlusGenerator {
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
                 //TODO  TODO  TODO  TODO
-                .setUrl("jdbc:mysql://127.0.0.1:3306/xdclass_order?useSSL=false")
+                .setUrl("jdbc:mysql://127.0.0.1:3306/xdclass_coupon?useSSL=false")
                 .setUsername("root")
-                .setPassword("zzf19970112472X");
+                .setPassword("xdclass.net");
 
         //3. 策略配置globalConfiguration中
         StrategyConfig stConfig = new StrategyConfig();
@@ -67,11 +79,12 @@ public class MyBatisPlusGenerator {
 
                 // 生成的表, 支持多表一起生成，以数组形式填写
                 //TODO  TODO  TODO  TODO
-                .setInclude("product_order","product_order_item");
+                //.setInclude("coupon","coupon_record");
+                .setInclude("coupon_task");
 
         //4. 包名策略配置
         PackageConfig pkConfig = new PackageConfig();
-        pkConfig.setParent("com.zzf")
+        pkConfig.setParent("net.xdclass")
                 .setMapper("mapper")
                 .setService("service")
                 .setController("controller")

@@ -3,21 +3,24 @@ package com.zzf.model;
 import lombok.Data;
 
 @Data
-public class ProductMessage {
+public class CouponRecordMessage {
 
 
     /**
-     * 消息队列id
+     * 消息id
      */
-    private long messageId;
+    private String messageId;
 
     /**
      * 订单号
      */
     private String outTradeNo;
 
+
     /**
-     * 库存锁定taskId
+     * 库存锁定任务id
      */
-    private long taskId;
+    private Long taskId;
+
+
 }

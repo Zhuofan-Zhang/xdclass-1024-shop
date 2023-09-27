@@ -4,6 +4,7 @@ package com.zzf.controller;
 import com.zzf.dto.CouponRecordDTO;
 import com.zzf.enums.BizCodeEnum;
 import com.zzf.model.CouponRecordDO;
+import com.zzf.request.LockCouponRecordRequest;
 import com.zzf.request.NewUserCouponRequest;
 import com.zzf.service.CouponRecordService;
 import com.zzf.util.JsonData;
@@ -48,13 +49,23 @@ public class CouponRecordController {
     @GetMapping("detail/{record_id}")
     public JsonData getCouponRecordDetailBy(@ApiParam(value = "record_id")  @PathVariable("record_id") long recordId){
 
-
-
         CouponRecordDTO couponRecordDTO = couponRecordService.findById(recordId);
 
         return couponRecordDTO == null ? JsonData.buildResult(BizCodeEnum.COUPON_NO_EXITS):JsonData.buildSuccess(couponRecordDTO);
 
     }
+
+    @ApiOperation("rpc-lock coupon record")
+    @PostMapping("lock_records")
+    public JsonData lockCouponRecords(@ApiParam("LockCouponRecordRequest") @RequestBody LockCouponRecordRequest recordRequest){
+
+
+        JsonData jsonData = couponRecordService.lockCouponRecords(recordRequest);
+
+        return jsonData;
+
+    }
+
 
 }
 

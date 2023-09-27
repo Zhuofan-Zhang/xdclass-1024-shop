@@ -1,9 +1,9 @@
 package com.zzf.service.impl;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import com.zzf.component.PayFactory;
@@ -31,6 +31,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
@@ -355,7 +356,9 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
         if(couponData.getCode()==0){
 
-            CouponRecordVO couponRecordVO = couponData.getData(new TypeReference<>(){});
+            TypeReference<CouponRecordVO> typeReference = new TypeReference<CouponRecordVO>() {};
+            CouponRecordVO couponRecordVO = couponData.getData(typeReference);
+
 
             if(!couponAvailable(couponRecordVO)){
                 log.error("优惠券使用失败");
