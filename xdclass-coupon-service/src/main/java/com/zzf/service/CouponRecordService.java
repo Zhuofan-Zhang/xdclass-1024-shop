@@ -3,6 +3,7 @@ package com.zzf.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzf.dto.CouponRecordDTO;
 import com.zzf.model.CouponRecordDO;
+import com.zzf.model.CouponRecordMessage;
 import com.zzf.request.LockCouponRecordRequest;
 import com.zzf.util.JsonData;
 
@@ -23,4 +24,6 @@ public interface CouponRecordService{
     CouponRecordDTO findById(long recordId);
 
     JsonData lockCouponRecords(LockCouponRecordRequest recordRequest);
+
+    boolean releaseCouponRecord(CouponRecordMessage recordMessage);
 }
