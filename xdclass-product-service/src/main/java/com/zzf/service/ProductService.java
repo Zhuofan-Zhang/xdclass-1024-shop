@@ -2,6 +2,7 @@ package com.zzf.service;
 
 import com.zzf.dto.ProductDTO;
 import com.zzf.model.ProductDO;
+import com.zzf.model.ProductMessage;
 import com.zzf.request.LockProductRequest;
 import com.zzf.util.JsonData;
 
@@ -18,4 +19,6 @@ public interface ProductService {
     List<ProductDTO> findProductsByIdBatch(List<Long> productIdList);
 
     JsonData lockProductStock(LockProductRequest lockProductRequest);
+
+    boolean releaseProductStock(ProductMessage productMessage);
 }

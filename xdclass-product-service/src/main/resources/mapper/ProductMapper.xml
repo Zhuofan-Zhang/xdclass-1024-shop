@@ -22,18 +22,18 @@
 
 
     <!--锁定商品库存-->
-    <update id="lockProductStock">
+    <update id="lockProductinventory">
 
-        update product set lock_stock = lock_stock + #{buyNum}
-        where id = #{productId} and stock - lock_stock>=#{buyNum}
+        update product set locked_inventory = locked_inventory + #{buyNum}
+        where id = #{productId} and inventory - locked_inventory>=#{buyNum}
 
     </update>
 
 
     <!--解锁商品库存-->
-    <update id="unlockProductStock">
+    <update id="unlockProductinventory">
 
-        update  product set lock_stock = lock_stock-#{buyNum} where id = #{productId}
+        update  product set locked_inventory = locked_inventory-#{buyNum} where id = #{productId}
 
     </update>
 

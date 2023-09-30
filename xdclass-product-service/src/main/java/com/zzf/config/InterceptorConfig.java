@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class InterceptorConfig implements WebMvcConfigurer {
 
     @Bean
-    public LoginInterceptor loginInterceptor(){
+    public LoginInterceptor loginInterceptor() {
         return new LoginInterceptor();
     }
 
@@ -21,8 +21,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
 
         registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/api/cart/*/**")
-                .excludePathPatterns();
+                .addPathPatterns("/api/cart/*/**", "/api/prodcut/*/lock_products")
+                .excludePathPatterns("");
 
     }
 

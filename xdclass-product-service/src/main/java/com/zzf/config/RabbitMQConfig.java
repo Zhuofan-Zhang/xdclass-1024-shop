@@ -23,7 +23,7 @@ public class RabbitMQConfig {
     /**
      * 交换机
      */
-    @Value("${mqconfig.coupon_event_exchange}")
+    @Value("${mqconfig.stock_event_exchange}")
     private String eventExchange;
 
 
