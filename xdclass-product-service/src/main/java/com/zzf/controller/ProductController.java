@@ -2,6 +2,7 @@ package com.zzf.controller;
 
 
 import com.zzf.dto.ProductDTO;
+import com.zzf.request.LockProductRequest;
 import com.zzf.service.ProductService;
 import com.zzf.util.JsonData;
 import io.swagger.annotations.Api;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author zzf
@@ -31,23 +32,29 @@ public class ProductController {
     @ApiOperation("get product details with pagination")
     @GetMapping("page")
     JsonData getProductsWithPagination(
-            @ApiParam(value = "page")  @RequestParam(value = "page", defaultValue = "1") int page,
+            @ApiParam(value = "page") @RequestParam(value = "page", defaultValue = "1") int page,
             @ApiParam(value = "size") @RequestParam(value = "size", defaultValue = "10") int size
     ) {
 
-        Map<String,Object> pageResult = productService.page(page,size);
+        Map<String, Object> pageResult = productService.page(page, size);
 
         return JsonData.buildSuccess(pageResult);
     }
 
     @ApiOperation("product detail")
     @GetMapping("/detail/{product_id}")
-    public JsonData detail(@ApiParam(value = "product_id",required = true) @PathVariable("product_id") long productId){
+    public JsonData detail(@ApiParam(value = "product_id", required = true) @PathVariable("product_id") long productId) {
 
         ProductDTO productDTO = productService.findDetailById(productId);
         return JsonData.buildSuccess(productDTO);
     }
 
+    @ApiOperation("lock products")
+    @PostMapping("lock_products")
+    public JsonData lockProducts(@ApiParam("LockProductRequest") @RequestBody LockProductRequest lockProductRequest) {
+        JsonData jsonData = productService.lockProductStock(lockProductRequest);
+        return JsonData.buildSuccess();
+    }
 
 
 }

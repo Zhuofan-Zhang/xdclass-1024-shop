@@ -3,10 +3,23 @@ package com.zzf.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zzf.config.RabbitMQConfig;
 import com.zzf.dto.ProductDTO;
+import com.zzf.enums.BizCodeEnum;
+import com.zzf.enums.StockTaskStateEnum;
+import com.zzf.exception.BizException;
+import com.zzf.feign.ProductOrderFeignSerivce;
+import com.zzf.mapper.ProductTaskMapper;
 import com.zzf.model.ProductDO;
 import com.zzf.mapper.ProductMapper;
+import com.zzf.model.ProductMessage;
+import com.zzf.model.ProductTaskDO;
+import com.zzf.request.LockProductRequest;
+import com.zzf.request.OrderItemRequest;
 import com.zzf.service.ProductService;
+import com.zzf.util.JsonData;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +27,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -24,12 +38,27 @@ import java.util.stream.Collectors;
  * @author zzf
  * @since 2023-09-12
  */
+@Slf4j
 @Service
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductMapper productMapper;
 
+
+    @Autowired
+    private ProductTaskMapper productTaskMapper;
+
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Autowired
+    private RabbitMQConfig rabbitMQConfig;
+
+
+    @Autowired
+    private ProductOrderFeignSerivce orderFeignSerivce;
     @Override
     public Map<String, Object> page(int page, int size) {
 
@@ -55,6 +84,50 @@ public class ProductServiceImpl implements ProductService {
         List<ProductDO> products = productMapper.selectList(new QueryWrapper<ProductDO>().in("id", productIdList));
         List<ProductDTO> productDTOS = products.stream().map(this::mapProductDTO).collect(Collectors.toList());
         return productDTOS;
+    }
+
+    @Override
+    public JsonData lockProductStock(LockProductRequest lockProductRequest) {
+
+        String outTradeNo = lockProductRequest.getOrderOutTradeNo();
+        List<OrderItemRequest> itemList  = lockProductRequest.getOrderItemList();
+
+        //一行代码，提取对象里面的id并加入到集合里面
+        List<Long> productIdList = itemList.stream().map(OrderItemRequest::getProductId).collect(Collectors.toList());
+        //批量查询
+        List<ProductDTO> ProductDTOList = this.findProductsByIdBatch(productIdList);
+        //分组
+        Map<Long,ProductDTO> productMap = ProductDTOList.stream().collect(Collectors.toMap(ProductDTO::getId, Function.identity()));
+
+        for(OrderItemRequest item:itemList){
+            //锁定商品记录
+            int rows = productMapper.lockProductStock(item.getProductId(),item.getPurchaseNum());
+            if(rows != 1){
+                throw new BizException(BizCodeEnum.ORDER_CONFIRM_LOCK_PRODUCT_FAIL);
+            }else {
+                //插入商品product_task
+                ProductDTO ProductDTO = productMap.get(item.getProductId());
+                ProductTaskDO productTaskDO = new ProductTaskDO();
+                productTaskDO.setBuyNum(item.getPurchaseNum());
+                productTaskDO.setLockState(StockTaskStateEnum.LOCK.name());
+                productTaskDO.setProductId(item.getProductId());
+                productTaskDO.setProductName(ProductDTO.getTitle());
+                productTaskDO.setOutTradeNo(outTradeNo);
+                productTaskMapper.insert(productTaskDO);
+                log.info("商品库存锁定-插入商品product_task成功:{}",productTaskDO);
+
+                // 发送MQ延迟消息，介绍商品库存
+                ProductMessage productMessage = new ProductMessage();
+                productMessage.setOutTradeNo(outTradeNo);
+                productMessage.setTaskId(productTaskDO.getId());
+
+                rabbitTemplate.convertAndSend(rabbitMQConfig.getEventExchange(),rabbitMQConfig.getStockReleaseDelayRoutingKey(),productMessage);
+                log.info("商品库存锁定信息延迟消息发送成功:{}",productMessage);
+
+            }
+
+        }
+        return JsonData.buildSuccess();
     }
 
     private ProductDTO mapProductDTO(ProductDO productDO) {

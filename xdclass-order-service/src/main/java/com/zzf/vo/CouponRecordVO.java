@@ -7,14 +7,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author 二当家小D
- * @since 2021-02-07
- */
+
 @Data
 public class CouponRecordVO {
 

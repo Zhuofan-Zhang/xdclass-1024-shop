@@ -12,8 +12,8 @@ import java.util.Date;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("coupon_task")
-public class CouponTaskDO implements Serializable {
+@TableName("product_task")
+public class ProductTaskDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,24 +21,28 @@ public class CouponTaskDO implements Serializable {
     private Long id;
 
     /**
-     * 优惠券记录id
+     * 商品id
      */
-    private Long couponRecordId;
+    private Long productId;
 
     /**
-     * 创建时间
+     * 购买数量
      */
-    private Date createTime;
+    private Integer buyNum;
 
     /**
-     * 订单号
+     * 商品标题
      */
-    private String outTradeNo;
+    private String productName;
 
     /**
-     * 锁定状态 锁定LOCK-完成FINISH 取消CANCEL
+     * 锁定状态锁定LOCK  完成FINISH-取消CANCEL
      */
     private String lockState;
+
+    private String outTradeNo;
+
+    private Date createTime;
 
 
 }
