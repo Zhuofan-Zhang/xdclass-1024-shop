@@ -9,7 +9,14 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 import java.util.Date;
 
-
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author 二当家小D
+ * @since 2021-02-25
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("product_task")

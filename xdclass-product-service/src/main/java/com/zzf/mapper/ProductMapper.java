@@ -1,7 +1,7 @@
 package com.zzf.mapper;
 
-import com.zzf.model.ProductDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zzf.model.ProductDO;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -13,7 +13,9 @@ import org.apache.ibatis.annotations.Param;
  * @since 2023-09-12
  */
 public interface ProductMapper extends BaseMapper<ProductDO> {
+
     int lockProductStock(@Param("productId") long productId, @Param("buyNum") int buyNum);
+
     void unlockProductStock(@Param("productId")Long productId, @Param("buyNum")Integer buyNum);
 
 }

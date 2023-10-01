@@ -1,19 +1,20 @@
 package com.zzf.model;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * <p>
  * 
  * </p>
  *
- * @author zzf
- * @since 2023-09-12
+ * @author 二当家小D
+ * @since 2021-02-19
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -25,10 +26,19 @@ public class BannerDO implements Serializable {
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String bannerImg;
+    /**
+     * 图片
+     */
+    private String img;
 
-    private String redirectUrl;
+    /**
+     * 跳转地址
+     */
+    private String url;
 
+    /**
+     * 权重
+     */
     private Integer weight;
 
 

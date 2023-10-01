@@ -1,10 +1,7 @@
 package com.zzf.service;
 
-import com.zzf.dto.CartDTO;
-import com.zzf.dto.CartItemDTO;
 import com.zzf.request.CartItemRequest;
-
-import java.util.List;
+import com.zzf.vo.CartVO;
 
 public interface CartService {
 
@@ -14,11 +11,26 @@ public interface CartService {
      */
     void addToCart(CartItemRequest cartItemRequest);
 
+    /**
+     * 清空购物车
+     */
     void clear();
 
-    CartDTO getCart();
+    /**
+     * 查看我的购物车
+     * @return
+     */
+    CartVO getMyCart();
 
+    /**
+     * 删除购物项
+     * @param productId
+     */
     void deleteItem(long productId);
 
+    /**
+     * 修改购物车商品数量
+     * @param cartItemRequest
+     */
     void changeItemNum(CartItemRequest cartItemRequest);
 }

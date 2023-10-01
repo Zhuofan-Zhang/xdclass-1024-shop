@@ -1,21 +1,33 @@
-package com.zzf.dto;
+package com.zzf.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 
 import java.math.BigDecimal;
 
+/**
+ * 小滴课堂,愿景：让技术不再难学
+ *
+ * @Description  购物项
+ *
+ * @Author 二当家小D
+ * @Remark 有问题直接联系我，源码-笔记-技术交流群
+ * @Version 1.0
+ **/
 
-public class CartItemDTO {
+public class CartItemVO {
 
-
+    /**
+     * 商品id
+     */
     @JsonProperty("product_id")
     private Long productId;
 
 
-
-    @JsonProperty("purchase_num")
-    private Integer purchaseNum;
+    /**
+     * 购买数量
+     */
+    @JsonProperty("buy_num")
+    private Integer buyNum;
 
     /**
      * 商品标题
@@ -49,12 +61,12 @@ public class CartItemDTO {
         this.productId = productId;
     }
 
-    public Integer getPurchaseNum() {
-        return purchaseNum;
+    public Integer getBuyNum() {
+        return buyNum;
     }
 
-    public void setPurchaseNum(Integer purchaseNum) {
-        this.purchaseNum = purchaseNum;
+    public void setBuyNum(Integer buyNum) {
+        this.buyNum = buyNum;
     }
 
     public String getProductTitle() {
@@ -87,7 +99,7 @@ public class CartItemDTO {
      */
     public BigDecimal getTotalAmount() {
 
-        return this.amount.multiply(new BigDecimal(this.purchaseNum));
+        return this.amount.multiply(new BigDecimal(this.buyNum));
     }
 
 }

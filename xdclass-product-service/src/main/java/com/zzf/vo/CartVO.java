@@ -1,17 +1,26 @@
-package com.zzf.dto;
+package com.zzf.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class CartDTO {
+/**
+ * 小滴课堂,愿景：让技术不再难学
+ *
+ * @Description
+ * @Author 二当家小D
+ * @Remark 有问题直接联系我，源码-笔记-技术交流群
+ * @Version 1.0
+ **/
+
+public class CartVO {
 
     /**
      * 购物项
      */
     @JsonProperty("cart_items")
-    private List<CartItemDTO> cartItems;
+    private List<CartItemVO> cartItems;
 
 
     /**
@@ -39,7 +48,7 @@ public class CartDTO {
      */
     public Integer getTotalNum() {
         if(this.cartItems!=null){
-            int total = cartItems.stream().mapToInt(CartItemDTO::getPurchaseNum).sum();
+            int total = cartItems.stream().mapToInt(CartItemVO::getBuyNum).sum();
             return total;
         }
         return 0;
@@ -52,8 +61,8 @@ public class CartDTO {
     public BigDecimal getTotalAmount() {
         BigDecimal amount = new BigDecimal("0");
         if(this.cartItems!=null){
-            for(CartItemDTO cartItemDTO : cartItems){
-                BigDecimal itemTotalAmount =  cartItemDTO.getTotalAmount();
+            for(CartItemVO cartItemVO : cartItems){
+                BigDecimal itemTotalAmount =  cartItemVO.getTotalAmount();
                 amount = amount.add(itemTotalAmount);
             }
         }
@@ -67,19 +76,19 @@ public class CartDTO {
     public BigDecimal getRealPayAmount() {
         BigDecimal amount = new BigDecimal("0");
         if(this.cartItems!=null){
-            for(CartItemDTO cartItemDTO : cartItems){
-                BigDecimal itemTotalAmount =  cartItemDTO.getTotalAmount();
+            for(CartItemVO cartItemVO : cartItems){
+                BigDecimal itemTotalAmount =  cartItemVO.getTotalAmount();
                 amount = amount.add(itemTotalAmount);
             }
         }
         return amount;
     }
 
-    public List<CartItemDTO> getCartItems() {
+    public List<CartItemVO> getCartItems() {
         return cartItems;
     }
 
-    public void setCartItems(List<CartItemDTO> cartItems) {
+    public void setCartItems(List<CartItemVO> cartItems) {
         this.cartItems = cartItems;
     }
 }

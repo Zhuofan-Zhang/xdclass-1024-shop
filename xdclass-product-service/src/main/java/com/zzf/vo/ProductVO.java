@@ -1,20 +1,29 @@
-package com.zzf.dto;
+package com.zzf.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 
-
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author 二当家小D
+ * @since 2021-02-19
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class ProductDTO {
+public class ProductVO  {
 
 
     private Long id;
 
+    /**
+     * 标题
+     */
     private String title;
 
     /**

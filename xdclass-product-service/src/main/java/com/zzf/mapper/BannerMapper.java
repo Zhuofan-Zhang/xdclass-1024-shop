@@ -1,7 +1,7 @@
 package com.zzf.mapper;
 
-import com.zzf.model.BannerDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zzf.model.BannerDO;
 
 /**
  * <p>

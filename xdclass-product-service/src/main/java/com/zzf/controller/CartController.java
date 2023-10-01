@@ -1,7 +1,7 @@
 package com.zzf.controller;
 
 
-import com.zzf.dto.CartDTO;
+import com.zzf.vo.CartVO;
 import com.zzf.request.CartItemRequest;
 import com.zzf.service.CartService;
 import com.zzf.util.JsonData;
@@ -38,7 +38,7 @@ public class CartController {
     @ApiOperation("view my cart")
     @GetMapping("cart")
     public JsonData getMyCart(){
-        CartDTO cartDTO = cartService.getCart();
+        CartVO cartDTO = cartService.getMyCart();
         return JsonData.buildSuccess(cartDTO);
     }
 

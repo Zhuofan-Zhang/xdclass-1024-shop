@@ -28,7 +28,7 @@ public class RabbitMQConfig {
 
 
     /**
-     * 第一个队列  延迟队列，
+     * 第一个队列延迟队列，
      */
     @Value("${mqconfig.stock_release_delay_queue}")
     private String stockReleaseDelayQueue;
@@ -91,8 +91,8 @@ public class RabbitMQConfig {
 
         Map<String,Object> args = new HashMap<>(3);
         args.put("x-message-ttl",ttl);
-        args.put("x-dead-letter-routing-key", stockReleaseRoutingKey);
         args.put("x-dead-letter-exchange",eventExchange);
+        args.put("x-dead-letter-routing-key",stockReleaseRoutingKey);
 
         return new Queue(stockReleaseDelayQueue,true,false,false,args);
     }
@@ -126,7 +126,7 @@ public class RabbitMQConfig {
     @Bean
     public Binding stockReleaseBinding(){
 
-        return new Binding(stockReleaseQueue,Binding.DestinationType.QUEUE,eventExchange, stockReleaseRoutingKey,null);
+        return new Binding(stockReleaseQueue,Binding.DestinationType.QUEUE,eventExchange,stockReleaseRoutingKey,null);
     }
 
 

@@ -1,21 +1,22 @@
 package com.zzf.model;
 
-import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * <p>
  * 
  * </p>
  *
- * @author zzf
- * @since 2023-09-12
+ * @author 二当家小D
+ * @since 2021-02-19
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -27,21 +28,45 @@ public class ProductDO implements Serializable {
       @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    /**
+     * 标题
+     */
     private String title;
 
+    /**
+     * 封面图
+     */
     private String coverImg;
 
+    /**
+     * 详情
+     */
     private String detail;
 
+    /**
+     * 老价格
+     */
     private BigDecimal oldAmount;
 
+    /**
+     * 新价格
+     */
     private BigDecimal amount;
 
-    private Integer inventory;
+    /**
+     * 库存
+     */
+    private Integer stock;
 
-    private Date createdAt;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 
-    private Integer lockedInventory;
+    /**
+     * 锁定库存
+     */
+    private Integer lockStock;
 
 
 }

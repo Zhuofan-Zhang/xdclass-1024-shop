@@ -30,7 +30,7 @@ public class BannerController {
     @ApiOperation("products banner view")
     @GetMapping("list")
     public JsonData getBannerList() {
-        return JsonData.buildSuccess(bannerService.getBannerList());
+        return JsonData.buildSuccess(bannerService.list());
     }
 
 }
