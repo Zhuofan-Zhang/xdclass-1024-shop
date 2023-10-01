@@ -52,8 +52,7 @@ public class ProductController {
     @ApiOperation("lock products")
     @PostMapping("lock_products")
     public JsonData lockProducts(@ApiParam("LockProductRequest") @RequestBody LockProductRequest lockProductRequest) {
-        JsonData jsonData = productService.lockProductStock(lockProductRequest);
-        return jsonData;
+        return productService.lockProductStock(lockProductRequest);
     }
 
 

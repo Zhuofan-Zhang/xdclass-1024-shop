@@ -8,7 +8,7 @@ CREATE TABLE `product_order` (
                                  `pay_type` varchar(64) DEFAULT NULL COMMENT '支付类型，微信-银行-支付宝',
                                  `nickname` varchar(64) DEFAULT NULL COMMENT '昵称',
                                  `head_img` varchar(524) DEFAULT NULL COMMENT '头像',
-                                 `user_id` int(11) DEFAULT NULL COMMENT '用户id',
+                                 `user_id` BIGINT DEFAULT NULL COMMENT '用户id',
                                  `del` int(5) DEFAULT '0' COMMENT '0表示未删除，1表示已经删除',
                                  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
                                  `order_type` varchar(32) DEFAULT NULL COMMENT '订单类型 DAILY普通单，PROMOTION促销订单',
