@@ -1,6 +1,7 @@
 package com.zzf.controller;
 
 
+import com.zzf.vo.CartItemVO;
 import com.zzf.vo.CartVO;
 import com.zzf.request.CartItemRequest;
 import com.zzf.service.CartService;
@@ -10,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Api("cart")
 @RestController
@@ -58,5 +61,16 @@ public class CartController {
 
         return JsonData.buildSuccess();
     }
+
+    @ApiOperation("获取对应订单的商品信息")
+    @PostMapping("confirm_order_cart_items")
+    public JsonData confirmOrderCartItems(@ApiParam("商品id列表") @RequestBody List<Long> productIdList){
+
+        List<CartItemVO> cartItemVOList = cartService.confirmOrderCartItems(productIdList);
+
+        return JsonData.buildSuccess(cartItemVOList);
+
+    }
+
 
 }

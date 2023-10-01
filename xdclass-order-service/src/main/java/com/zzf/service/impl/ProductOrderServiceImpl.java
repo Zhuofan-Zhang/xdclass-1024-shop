@@ -1,6 +1,7 @@
 package com.zzf.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -126,7 +127,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         List<Long> productIdList = orderRequest.getProductIdList();
 
         JsonData cartItemDate = productFeignService.confirmOrderCartItem(productIdList);
-        List<OrderItemVO> orderItemList  = (List<OrderItemVO>) cartItemDate.getData();
+        List<OrderItemVO> orderItemList  = cartItemDate.getData(new TypeReference<>(){});
         log.info("获取的商品:{}",orderItemList);
         if(orderItemList == null){
             //购物车商品不存在

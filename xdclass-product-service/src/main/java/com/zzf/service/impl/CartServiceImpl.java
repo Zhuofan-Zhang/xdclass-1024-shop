@@ -25,14 +25,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * 小滴课堂,愿景：让技术不再难学
- *
- * @Description
- * @Author 二当家小D
- * @Remark 有问题直接联系我，源码-笔记-技术交流群
- * @Version 1.0
- **/
 
 @Service
 @Slf4j
@@ -125,6 +117,27 @@ public class CartServiceImpl implements CartService {
         cartItemVO.setBuyNum(cartItemRequest.getBuyNum());
         mycart.put(cartItemRequest.getProductId(),JSON.toJSONString(cartItemVO));
     }
+
+    @Override
+    public List<CartItemVO> confirmOrderCartItems(List<Long> productIdList) {
+
+        //获取全部购物车的购物项
+        List<CartItemVO> cartItemVOList =  buildCartItem(true);
+
+        //根据需要的商品id进行过滤，并清空对应的购物项
+        List<CartItemVO> resultList =  cartItemVOList.stream().filter(obj->{
+
+            if(productIdList.contains(obj.getProductId())){
+                this.deleteItem(obj.getProductId());
+                return true;
+            }
+            return false;
+
+        }).collect(Collectors.toList());
+
+        return resultList;
+    }
+
 
 
     @Override

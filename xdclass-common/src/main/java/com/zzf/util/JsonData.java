@@ -1,5 +1,7 @@
 package com.zzf.util;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import com.zzf.enums.BizCodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +26,10 @@ public class JsonData {
      */
     private String msg;
 
+
+    public <T> T getData(TypeReference<T> typeReference){
+        return JSON.parseObject(JSON.toJSONString(data),typeReference);
+    }
 
     /**
      * 成功，传入数据

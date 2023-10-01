@@ -1,7 +1,10 @@
 package com.zzf.service;
 
 import com.zzf.request.CartItemRequest;
+import com.zzf.vo.CartItemVO;
 import com.zzf.vo.CartVO;
+
+import java.util.List;
 
 public interface CartService {
 
@@ -33,4 +36,6 @@ public interface CartService {
      * @param cartItemRequest
      */
     void changeItemNum(CartItemRequest cartItemRequest);
+
+    List<CartItemVO> confirmOrderCartItems(List<Long> productIdList);
 }
