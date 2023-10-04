@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92c678ba-6a16-412a-a51d-7b1cc886b169" name="Changes" comment="add api-gateway">
+      <change afterPath="$PROJECT_DIR$/docker/push.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-coupon-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-order-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-order-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-order-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-product-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-user-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-coupon-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-coupon-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-order-service/src/main/java/com/zzf/config/AlipayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-order-service/src/main/java/com/zzf/config/AlipayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-product-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/mapper/AddressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="runMavenInBackground" value="false" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2UcKZ3KIMibYhmYodacLRfgZskD" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "last_opened_file_path": "/Users/zzf/projects/xdclass",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "settings.editor.splitter.proportion": "0.26069248",
+    "show.migrate.to.gradle.popup": "false",
+    "spring.configuration.checksum": "b3cebf12ef9b33ed78789a031201b3d1",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/xdclass-user-service/src/main/resources" />
+      <recent name="$PROJECT_DIR$/xdclass-user-service" />
+      <recent name="$PROJECT_DIR$/xdclass-product-service/src/main/resources" />
+      <recent name="$PROJECT_DIR$/xdclass-product-service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/xdclass-user-service/src/main/resources/mapper" />
+      <recent name="$PROJECT_DIR$/xdclass-order-service/src/main/resources/mapper" />
+      <recent name="$PROJECT_DIR$/xdclass-product-service/src/main/resources" />
+      <recent name="$PROJECT_DIR$/xdclass-product-service/src/main/resources/mapper" />
+      <recent name="$PROJECT_DIR$/xdclass-coupon-service/src/main/java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zzf.service.impl" />
+      <recent name="com.zzf.feign" />
+      <recent name="com.zzf.dto" />
+      <recent name="com.zzf.model" />
+      <recent name="com.zzf.mapper" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="Application" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="openRunningConfigInTab" value="true" />
+  </component>
+  <component name="RunManager" selected="Docker.xdclass-coupon-service/Dockerfile">
+    <configuration name="MQTest.testOrderClose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xdclass-order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="biz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="biz" />
+      <option name="MAIN_CLASS_NAME" value="biz.MQTest" />
+      <option name="METHOD_NAME" value="testOrderClose" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MQTest.testSendProductStockMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xdclass-product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="biz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="biz" />
+      <option name="MAIN_CLASS_NAME" value="biz.MQTest" />
+      <option name="METHOD_NAME" value="testSendProductStockMessage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CouponApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xdclass-coupon-service-test" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="net.xdclass.CouponApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CouponApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xdclass-coupon-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzf.CouponApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CouponApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false" temporary="true">
+      <module name="xdclass-coupon-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzf.CouponApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=9008" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zzf.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xdclass-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzf.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false" nameIsGenerated="true">
+      <module name="xdclass-order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzf.OrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="xdclass-product-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzf.ProductApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zzf.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xdclass-user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzf.UserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile" />
+      <method v="2" />
+    </configuration>
+    <configuration name="xdclass-coupon-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildOnly" value="true" />
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="xdclass-coupon-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.xdclass-coupon-service/Dockerfile" />
+      <item itemvalue="JUnit.MQTest.testOrderClose" />
+      <item itemvalue="JUnit.MQTest.testSendProductStockMessage" />
+      <item itemvalue="Spring Boot.CouponApplication (1)" />
+      <item itemvalue="Spring Boot.CouponApplication (2)" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.OrderApplication" />
+      <item itemvalue="Spring Boot.UserApplication" />
+      <item itemvalue="Spring Boot.CouponApplication" />
+      <item itemvalue="Spring Boot.ProductApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.xdclass-coupon-service/Dockerfile" />
+        <item itemvalue="Spring Boot.CouponApplication" />
+        <item itemvalue="Spring Boot.ProductApplication" />
+        <item itemvalue="JUnit.MQTest.testOrderClose" />
+        <item itemvalue="JUnit.MQTest.testSendProductStockMessage" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92c678ba-6a16-412a-a51d-7b1cc886b169" name="Changes" comment="" />
+      <created>1693233481213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693233481213</updated>
+      <workItem from="1693233482271" duration="5879000" />
+      <workItem from="1693336054311" duration="22841000" />
+      <workItem from="1693468975715" duration="2934000" />
+      <workItem from="1693472851458" duration="14209000" />
+      <workItem from="1693574965996" duration="11695000" />
+      <workItem from="1693924878064" duration="24373000" />
+      <workItem from="1694279433204" duration="20466000" />
+      <workItem from="1694437674185" duration="54599000" />
+      <workItem from="1694870359815" duration="8745000" />
+      <workItem from="1695129410119" duration="17072000" />
+      <workItem from="1695420633209" duration="471000" />
+      <workItem from="1695547078428" duration="10171000" />
+      <workItem from="1695804501680" duration="12238000" />
+      <workItem from="1696072497519" duration="14061000" />
+      <workItem from="1696163916745" duration="21424000" />
+      <workItem from="1696266317878" duration="21981000" />
+      <workItem from="1696370596204" duration="720000" />
+      <workItem from="1696425326167" duration="9879000" />
+    </task>
+    <task id="LOCAL-00016" summary="add LoginInterceptorConfig">
+      <option name="closed" value="true" />
+      <created>1693953417060</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1693953417060</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix user registration">
+      <option name="closed" value="true" />
+      <created>1693955647992</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1693955647992</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add api to get user information">
+      <option name="closed" value="true" />
+      <created>1694205575123</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694205575123</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add api to create new address for user">
+      <option name="closed" value="true" />
+      <created>1694209772910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1694209772910</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix compilation error">
+      <option name="closed" value="true" />
+      <created>1694209981590</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1694209981590</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add api for deleting address by id and query all of customer's address">
+      <option name="closed" value="true" />
+      <created>1694211086777</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1694211086777</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add login logic when getting address by id">
+      <option name="closed" value="true" />
+      <created>1694211478906</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1694211478906</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix ut">
+      <option name="closed" value="true" />
+      <created>1694211756957</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1694211756957</updated>
+    </task>
+    <task id="LOCAL-00024" summary="create CouponApplication and set up coupon database">
+      <option name="closed" value="true" />
+      <created>1694282294085</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1694282294085</updated>
+    </task>
+    <task id="LOCAL-00025" summary="implement get coupon list with pagination">
+      <option name="closed" value="true" />
+      <created>1694292571001</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1694292571001</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add api to add coupon to customer's account">
+      <option name="closed" value="true" />
+      <created>1694294818526</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1694294818526</updated>
+    </task>
+    <task id="LOCAL-00027" summary="refactor validateCoupon method name">
+      <option name="closed" value="true" />
+      <created>1694382186597</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1694382186597</updated>
+    </task>
+    <task id="LOCAL-00028" summary="refactor add coupon service and add redis lock">
+      <option name="closed" value="true" />
+      <created>1694437206245</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1694437206245</updated>
+    </task>
+    <task id="LOCAL-00029" summary="refactor redis lock with redisson">
+      <option name="closed" value="true" />
+      <created>1694438022396</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1694438022396</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add api to query user's coupon record with pagination">
+      <option name="closed" value="true" />
+      <created>1694528505161</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1694528505161</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add api to query user's coupon record by record id">
+      <option name="closed" value="true" />
+      <created>1694529113437</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1694529113437</updated>
+    </task>
+    <task id="LOCAL-00032" summary="implement logic to issue coupon to newly registered user">
+      <option name="closed" value="true" />
+      <created>1694535039879</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1694535039879</updated>
+    </task>
+    <task id="LOCAL-00033" summary="create sql scripts for create_banner.sql and create_product.sql">
+      <option name="closed" value="true" />
+      <created>1694536118566</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1694536118566</updated>
+    </task>
+    <task id="LOCAL-00034" summary="set up xdclass-product-service">
+      <option name="closed" value="true" />
+      <created>1694536615265</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1694536615265</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add banner view service and controller">
+      <option name="closed" value="true" />
+      <created>1694537796733</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1694537796733</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add api to query product details with pagination">
+      <option name="closed" value="true" />
+      <created>1694552913333</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1694552913333</updated>
+    </task>
+    <task id="LOCAL-00037" summary="find product detail by product id">
+      <option name="closed" value="true" />
+      <created>1694553283764</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1694553283764</updated>
+    </task>
+    <task id="LOCAL-00038" summary="add InterceptorConfig">
+      <option name="closed" value="true" />
+      <created>1694553346534</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1694553346534</updated>
+    </task>
+    <task id="LOCAL-00039" summary="add api to add products to cart">
+      <option name="closed" value="true" />
+      <created>1694643455073</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1694643455073</updated>
+    </task>
+    <task id="LOCAL-00040" summary="solve redis decode failure">
+      <option name="closed" value="true" />
+      <created>1694686127013</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1694686127014</updated>
+    </task>
+    <task id="LOCAL-00041" summary="implement api to clear shopping cart">
+      <option name="closed" value="true" />
+      <created>1694686369193</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1694686369193</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add api to view my cart">
+      <option name="closed" value="true" />
+      <created>1694689632344</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1694689632344</updated>
+    </task>
+    <task id="LOCAL-00043" summary="test github action secrets">
+      <option name="closed" value="true" />
+      <created>1694793557802</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1694793557802</updated>
+    </task>
+    <task id="LOCAL-00044" summary="use github workflow secrets and envs">
+      <option name="closed" value="true" />
+      <created>1694815338496</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1694815338496</updated>
+    </task>
+    <task id="LOCAL-00045" summary="grant set_env.sh access">
+      <option name="closed" value="true" />
+      <created>1694815537156</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1694815537156</updated>
+    </task>
+    <task id="LOCAL-00046" summary="fix set_env.sh">
+      <option name="closed" value="true" />
+      <created>1694816016681</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1694816016681</updated>
+    </task>
+    <task id="LOCAL-00047" summary="test using env in github workflow">
+      <option name="closed" value="true" />
+      <created>1694856267694</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1694856267694</updated>
+    </task>
+    <task id="LOCAL-00048" summary="implement ProductOrderService and add nacos to manage microservice">
+      <option name="closed" value="true" />
+      <created>1695136824020</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1695136824020</updated>
+    </task>
+    <task id="LOCAL-00049" summary="user register coupon issue">
+      <option name="closed" value="true" />
+      <created>1695153972648</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1695153972648</updated>
+    </task>
+    <task id="LOCAL-00050" summary="distributed transactions">
+      <option name="closed" value="true" />
+      <created>1695286226207</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1695286226207</updated>
+    </task>
+    <task id="LOCAL-00051" summary="add more funtionalities">
+      <option name="closed" value="true" />
+      <created>1695809384486</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1695809384486</updated>
+    </task>
+    <task id="LOCAL-00052" summary="add entity mapper">
+      <option name="closed" value="true" />
+      <created>1695809406994</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1695809406994</updated>
+    </task>
+    <task id="LOCAL-00053" summary="coupon service delayed queue message">
+      <option name="closed" value="true" />
+      <created>1695844732632</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1695844732632</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fix TypeReference Error">
+      <option name="closed" value="true" />
+      <created>1695845768680</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1695845768680</updated>
+    </task>
+    <task id="LOCAL-00055" summary="implement lockProductStock with delayMQ">
+      <option name="closed" value="true" />
+      <created>1696088070329</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1696088070329</updated>
+    </task>
+    <task id="LOCAL-00056" summary="test delay queue messages for lock product task">
+      <option name="closed" value="true" />
+      <created>1696116396659</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1696116396659</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fix update lock stock not working">
+      <option name="closed" value="true" />
+      <created>1696166631611</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1696166631611</updated>
+    </task>
+    <task id="LOCAL-00058" summary="implement get selected items details in cart">
+      <option name="closed" value="true" />
+      <created>1696173520461</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1696173520461</updated>
+    </task>
+    <task id="LOCAL-00059" summary="temporarily remove set env">
+      <option name="closed" value="true" />
+      <created>1696175037569</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1696175037569</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fix database error">
+      <option name="closed" value="true" />
+      <created>1696178036662</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1696178036662</updated>
+    </task>
+    <task id="LOCAL-00061" summary="add test for Order Rabbit MQ">
+      <option name="closed" value="true" />
+      <created>1696181055060</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1696181055060</updated>
+    </task>
+    <task id="LOCAL-00062" summary="update AlipayConfig">
+      <option name="closed" value="true" />
+      <created>1696196248783</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1696196248783</updated>
+    </task>
+    <task id="LOCAL-00063" summary="add payment call back controller">
+      <option name="closed" value="true" />
+      <created>1696346222285</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1696346222286</updated>
+    </task>
+    <task id="LOCAL-00064" summary="add api-gateway">
+      <option name="closed" value="true" />
+      <created>1696365181190</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1696365181190</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="implement api to clear shopping cart" />
+    <MESSAGE value="add api to view my cart" />
+    <MESSAGE value="test github action secrets" />
+    <MESSAGE value="use github workflow secrets and envs" />
+    <MESSAGE value="grant set_env.sh access" />
+    <MESSAGE value="fix set_env.sh" />
+    <MESSAGE value="test using env in github workflow" />
+    <MESSAGE value="add api to delete certain product in my cart and change item number" />
+    <MESSAGE value="implement ProductOrderService and add nacos to manage microservice" />
+    <MESSAGE value="user register coupon issue" />
+    <MESSAGE value="distributed transactions" />
+    <MESSAGE value="add more funtionalities" />
+    <MESSAGE value="add entity mapper" />
+    <MESSAGE value="coupon service delayed queue message" />
+    <MESSAGE value="fix TypeReference Error" />
+    <MESSAGE value="implement lockProductStock with delayMQ" />
+    <MESSAGE value="test delay queue messages for lock product task" />
+    <MESSAGE value="fix update lock stock not working" />
+    <MESSAGE value="implement get selected items details in cart" />
+    <MESSAGE value="temporarily remove set env" />
+    <MESSAGE value="fix database error" />
+    <MESSAGE value="add test for Order Rabbit MQ" />
+    <MESSAGE value="update AlipayConfig" />
+    <MESSAGE value="add payment call back controller" />
+    <MESSAGE value="add api-gateway" />
+    <option name="LAST_COMMIT_MESSAGE" value="add api-gateway" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-user-service/src/main/java/com/zzf/service/impl/NotifyServiceImpl.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-user-service/src/main/java/com/zzf/service/impl/NotifyServiceImpl.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-user-service/src/main/java/com/zzf/controller/NotificationController.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-user-service/src/main/java/com/zzf/service/impl/NotifyServiceImpl.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-product-service/src/main/java/com/zzf/mq/ProductStockMQListener.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-product-service/src/main/java/com/zzf/service/impl/ProductServiceImpl.java</url>
+          <line>205</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-product-service/src/main/java/com/zzf/service/impl/ProductServiceImpl.java</url>
+          <line>206</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-product-service/src/main/java/com/zzf/service/impl/ProductServiceImpl.java</url>
+          <line>207</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-product-service/src/main/java/com/zzf/service/impl/ProductServiceImpl.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xdclass-product-service/src/main/java/com/zzf/service/impl/ProductServiceImpl.java</url>
+          <line>213</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/xdclass-coupon-service/src/main/java/com/zzf/service/CouponRecordService.java</url>
+          <line>25</line>
+          <properties class="com.zzf.service.CouponRecordService" method="lockCouponRecords">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

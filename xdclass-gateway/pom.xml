@@ -15,9 +15,9 @@
     <dependencies>
 
         <!--<dependency>-->
-            <!--<groupId>net.xdclass</groupId>-->
-            <!--<artifactId>xdclass-common</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--<groupId>com.zzf</groupId>-->
+        <!--<artifactId>xdclass-common</artifactId>-->
+        <!--<version>1.0-SNAPSHOT</version>-->
         <!--</dependency>-->
         <!--网关依赖-->
         <dependency>
@@ -66,6 +66,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
 
                 <!--需要加这个，不然打包镜像找不到启动文件-->
                 <executions>
