@@ -46,9 +46,24 @@
 
 
     <build>
-        <finalName>alibaba-cloud-user</finalName>
+        <finalName>xdclass-user-service</finalName>
 
         <plugins>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.zzf.UserApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -71,17 +86,35 @@
             </plugin>
 
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.10</version>
+                <!-- To run: mvn docker:build -->
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.43.4</version>
                 <configuration>
-
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
-
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
+                    <images>
+                        <image>
+                            <name>xdclass-user-service</name>
+                            <build>
+                                <from>openjdk:11</from>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <cmd>java -jar maven/xdclass-user-service.jar</cmd>
+                            </build>
+                        </image>
+                    </images>
                 </configuration>
+                <!-- Adding this part always executes the docker:build during Maven's package phase.
+                     No need to execute above mentioned command. -->
+                <executions>
+                    <execution>
+                        <id>docker:build</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

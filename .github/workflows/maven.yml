@@ -21,6 +21,8 @@ jobs:
 
     env:
       REDIS_HOST: ${{ secrets.REDIS_HOST }}
+      ALICLOUD_USERNAME: ${{ secrets.ALICLOUD_USERNAME }}
+      ALICLOUD_PASSWORD: ${{ secrets.ALICLOUD_PASSWORD }}
 
     steps:
     - uses: actions/checkout@v3
@@ -30,10 +32,13 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-#    - name: Grant Execute Permission
-#      run: chmod +x xdclass-product-service/env/set_env.sh
+    - name: Grant Execute Permission
+      run: chmod +x docker/push.sh
 #    - name: Set up application.yml
 #      run: xdclass-product-service/env/set_env.sh
+
+    - name: push to alibaba cloud registry
+      run: docker/push.sh
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml

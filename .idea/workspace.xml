@@ -5,38 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92c678ba-6a16-412a-a51d-7b1cc886b169" name="Changes" comment="add api-gateway">
-      <change afterPath="$PROJECT_DIR$/docker/push.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-coupon-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-order-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-order-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-order-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-product-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-user-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/aws_push.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/push.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/push.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xdclass-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-coupon-service/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xdclass-coupon-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-coupon-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-coupon-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-gateway/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xdclass-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-gateway/src/main/java/com/zzf/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-order-service/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xdclass-order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xdclass-order-service/src/main/java/com/zzf/config/AlipayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-order-service/src/main/java/com/zzf/config/AlipayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-order-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-order-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-product-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-product-service/env/set_env.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xdclass-product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-product-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-product-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-user-service/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xdclass-user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/mapper/AddressMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xdclass-user-service/src/main/resources/application.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +66,7 @@
     <option name="runMavenInBackground" value="false" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2UcKZ3KIMibYhmYodacLRfgZskD" />
   <component name="ProjectLevelVcsManager">
@@ -85,36 +76,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "corretto-11",
-    "last_opened_file_path": "/Users/zzf/projects/xdclass",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "settings.editor.splitter.proportion": "0.26069248",
-    "show.migrate.to.gradle.popup": "false",
-    "spring.configuration.checksum": "b3cebf12ef9b33ed78789a031201b3d1",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zzf/projects/xdclass&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.26069248&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b3cebf12ef9b33ed78789a031201b3d1&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -150,7 +141,7 @@
     </option>
     <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager" selected="Docker.xdclass-coupon-service/Dockerfile">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="MQTest.testOrderClose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xdclass-order-service" />
       <extension name="coverage">
@@ -167,32 +158,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MQTest.testSendProductStockMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xdclass-product-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="biz.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="biz" />
-      <option name="MAIN_CLASS_NAME" value="biz.MQTest" />
-      <option name="METHOD_NAME" value="testSendProductStockMessage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CouponApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="xdclass-coupon-service-test" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="net.xdclass.CouponApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CouponApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="xdclass-coupon-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zzf.CouponApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -246,7 +214,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="xdclass-coupon-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
@@ -259,12 +229,20 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="xdclass-gateway/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="xdclass-gateway/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Docker.xdclass-coupon-service/Dockerfile" />
+      <item itemvalue="Docker.xdclass-gateway/Dockerfile" />
       <item itemvalue="JUnit.MQTest.testOrderClose" />
-      <item itemvalue="JUnit.MQTest.testSendProductStockMessage" />
       <item itemvalue="Spring Boot.CouponApplication (1)" />
-      <item itemvalue="Spring Boot.CouponApplication (2)" />
       <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.OrderApplication" />
       <item itemvalue="Spring Boot.UserApplication" />
@@ -273,11 +251,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.xdclass-coupon-service/Dockerfile" />
-        <item itemvalue="Spring Boot.CouponApplication" />
         <item itemvalue="Spring Boot.ProductApplication" />
+        <item itemvalue="Spring Boot.CouponApplication" />
+        <item itemvalue="Docker.xdclass-gateway/Dockerfile" />
+        <item itemvalue="Docker.xdclass-coupon-service/Dockerfile" />
         <item itemvalue="JUnit.MQTest.testOrderClose" />
-        <item itemvalue="JUnit.MQTest.testSendProductStockMessage" />
       </list>
     </recent_temporary>
   </component>
@@ -306,7 +284,9 @@
       <workItem from="1696163916745" duration="21424000" />
       <workItem from="1696266317878" duration="21981000" />
       <workItem from="1696370596204" duration="720000" />
-      <workItem from="1696425326167" duration="9879000" />
+      <workItem from="1696425326167" duration="18172000" />
+      <workItem from="1696503549923" duration="686000" />
+      <workItem from="1696698716390" duration="11516000" />
     </task>
     <task id="LOCAL-00016" summary="add LoginInterceptorConfig">
       <option name="closed" value="true" />
